@@ -1,0 +1,54 @@
+# <center>Catalog</center>
+
+- combinatorial
+  - factorial
+  - derangement
+  - catalan
+  - binomial
+  - stiring numbers of the second kind
+- CRT
+  - extend_gcd
+  - chinese_remainder
+- disjoint_set_union
+  - find
+  - merge
+- geometry
+  - point
+  - circle
+- graph
+  - dij
+  - floyd
+  - bellman_ford
+  - spfa
+- header
+- high_precision
+  - ```=```
+  - ```>>```
+  - ```<<```
+  - ```+```
+  - ```-```
+  - ```*```
+  - ```/```
+  - ```^``` (fast power)
+  - ```%```
+  - ```>```
+  - print
+- inverse_pairs 
+- IO
+  - read
+    - 1-6 Integers
+    - vector
+- matrix
+  - ```[]```
+  - ```*```
+  - ```^``` (fast power)
+  - print
+  - [cyclic optimized]
+- number_theory
+  - euler_sieve
+  - euler_funcion_sieve
+  - mobius_mu_sieve
+  - is_prime
+  - generate_factors
+- segment_tree
+- template
