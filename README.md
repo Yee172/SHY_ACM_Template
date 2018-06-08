@@ -6,7 +6,6 @@
 
 ### Contributor
 
-[Yee_172](https://github.com/Yee172)
-
 [VinceBlack](http://codeforces.com/profile/VinceBlack)
 
+[Yee_172](https://github.com/Yee172)
