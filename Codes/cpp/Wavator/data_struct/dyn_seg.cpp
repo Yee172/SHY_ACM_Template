@@ -1,9 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
 int pid;
 struct dyn_seg
 {
-    static const int N = 300010 * 50;
     struct seg
     {
         int l, r, cnt, flg;
@@ -12,14 +9,14 @@ struct dyn_seg
                 return;
             l = ++pid;
             r = ++pid;
-            assert(pid <= N);
         }
     };
 
-    seg s[N];
+    vector<seg> s;
 
-    void init() {
+    void init(unsigned int n) {
         ::pid = 0;
+        s.resize(n);
     }
 
     inline void push_up(int rt) {
@@ -51,4 +48,5 @@ struct dyn_seg
     }
 
 };
+
 dyn_seg tree;
