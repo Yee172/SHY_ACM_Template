@@ -1,14 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 struct segTree {
-    static const int N = 100002 << 2;
 #define type int
-    type a[N];
-    
+    vector<type> a;
     int n;
-    
     void init(int n) {
         this->n = n;
+        a.resize(static_cast<unsigned int>(n << 2 | 1));
     }
-    
     inline void push_up(int rt) {
         a[rt] = a[rt << 1] + a[rt << 1 | 1];
     }
@@ -22,12 +22,12 @@ struct segTree {
         build(mid + 1, r, rt << 1 | 1, in);
         push_up(rt);
     }
-    
-    
+
+
     inline void build(type * in) {
         build(1, n, 1, in);
     }
-    
+
     void change(int pos, type x, int l, int r, int rt) {
         if (l == r)
             return (void)(a[rt] = x);
@@ -38,7 +38,7 @@ struct segTree {
             change(pos, x, mid + 1, r, rt << 1 | 1);
         push_up(rt);
     }
-    
+
     inline void change(int pos, type x) {
         change(pos, x, 1, n, 1);
     }
@@ -54,10 +54,18 @@ struct segTree {
             res += query(L, R, mid + 1, r, rt << 1 | 1);
         return res;
     }
-    
+
     inline type query(int L, int R) {
         return query(L, R, 1, n, 1);
     }
-    
+
 #undef type
 };
+
+int main() {
+#ifdef Wavator
+    freopen("test.in", "r", stdin);
+#endif
+
+    return 0;
+}
