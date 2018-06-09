@@ -19,6 +19,7 @@
 │   │   │   ├── data_struct
 │   │   │   │   ├── bit.cpp
 │   │   │   │   ├── dsu.cpp
+│   │   │   │   ├── dyn_seg.cpp
 │   │   │   │   └── seg_tree_point_change.cpp
 │   │   │   ├── debug_cf.cpp
 │   │   │   ├── includes.cpp
@@ -67,4 +68,4 @@
 │   └── geometry_drafts.pdf
 └── contents_generator.sh~
 
-14 directories, 53 files
+14 directories, 54 files
