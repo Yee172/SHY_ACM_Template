@@ -20,6 +20,7 @@ public:
         memset(a, 0, sizeof(a));
     }
     BigInteger(const ll);
+    BigInteger(const int);
     BigInteger(const char *);
     BigInteger(const BigInteger &);
     BigInteger &operator=(const BigInteger &);
@@ -37,12 +38,26 @@ public:
     bool       operator>(const BigInteger &T) const;
     bool       operator>(const ll &t) const;
 
-    void print();
+    void print(bool stdio=true);
 };
 
 BigInteger::BigInteger(const ll b)
 {
     ll c, d = b;
+    len = 0;
+    memset(a, 0, sizeof a);
+    while (d > UNIT_SIZE)
+    {
+        c = d - (d / (UNIT_SIZE + 1)) * (UNIT_SIZE + 1);
+        d = d / (UNIT_SIZE + 1);
+        a[len++] = c;
+    }
+    a[len++] = d;
+}
+
+BigInteger::BigInteger(const int b)
+{
+    int c, d = b;
     len = 0;
     memset(a, 0, sizeof a);
     while (d > UNIT_SIZE)
@@ -93,7 +108,7 @@ BigInteger &BigInteger::operator=(const BigInteger &n)
 
 istream &operator>>(istream &in, BigInteger &b)
 {
-    char ch[MAX_SIZE * 4];
+    char ch[BUFFER_SIZE * 4];
     ll i, l;
     in >> ch;
     l = (ll) strlen(ch);
@@ -260,15 +275,35 @@ bool BigInteger::operator>(const ll &t) const
     return *this > b;
 }
 
-void BigInteger::print()
+void BigInteger::print(bool stdio)
 {
-    ll i;
-    cout << a[len - 1];
-    for (i = len - 2; i >= 0; i--)
+    if (stdio)
     {
-        cout.width(UNIT_LENGTH);
-        cout.fill('0');
-        cout << a[i];
+        ll j;
+        char ch[UNIT_LENGTH + 1];
+        ch[UNIT_LENGTH] = '\0';
+        printf("%lld", a[len - 1]);
+        for (ll i = len - 2; i >= 0; i--)
+        {
+            for (j = 0; j < UNIT_LENGTH; j++) ch[j] = '0';
+            while (a[i])
+            {
+                ch[--j] = (char) ('0' + a[i] % 10);
+                a[i] /= 10;
+            }
+            printf("%s", ch);
+        }
+        puts("");
     }
-    cout << endl;
+    else
+    {
+        cout << a[len - 1];
+        for (ll i = len - 2; i >= 0; i--)
+        {
+            cout.width(UNIT_LENGTH);
+            cout.fill('0');
+            cout << a[i];
+        }
+        cout << endl;
+    }
 }

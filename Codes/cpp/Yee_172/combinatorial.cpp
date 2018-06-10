@@ -5,6 +5,7 @@ typedef long long ll;
 #define _rep(i, n) for (ll i = 1; (i) <= (n); (i)++)
 #define mod 0x3b9aca07
 #define MAXN 200050
+#define TYPE ll
 
 
 ll factorial[MAXN];
@@ -19,6 +20,15 @@ void init_factorial()
         factorial[i] = i * factorial[i - 1];
     //MAXIMUM 20
 #endif
+}
+
+
+TYPE factorial[MAXN];
+void init_factorial()
+{
+    factorial[0] = (TYPE) 1;
+    for (ll i = 1; i < MAXN; i++)
+        factorial[i] = (TYPE) i * factorial[i - 1];
 }
 
 
@@ -61,6 +71,20 @@ void init_catalan()
     if (MAXN > 35) catalan[35] = 3116285494907301262;
     // MAXIMUM 35
 #endif
+}
+
+
+vector<TYPE> catalan[MAXN]; // catalan[in_stack][out_stack]
+void init_catalan()
+{
+    for (ll i = 0; i < MAXN; i++)
+        catalan[i].push_back((TYPE) 1);
+    for (ll i = 1; i < MAXN; i++)
+    {
+        for (ll j = 1; j < i; j++)
+            catalan[i].push_back(catalan[i - 1][j] + catalan[i][j - 1]);
+        catalan[i].push_back(catalan[i][i - 1]);
+    }
 }
 
 
