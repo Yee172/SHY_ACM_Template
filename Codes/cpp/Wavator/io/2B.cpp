@@ -1,5 +1,5 @@
-char O[1<<20],*SS=O,*TT=O;
-#define gc (SS == TT && (TT = (SS = O) + fread(O, 1, 1 << 20, stdin), SS == TT)? -1: *SS++)
+char OOXOO[1<<20],*XXOO=OOXOO,*OOXX=OOXOO;
+#define gc (XXOO == OOXX && (OOXX = (XXOO = OOXOO) + fread(OOXOO, 1, 1 << 20, stdin), XXOO == OOXX)? -1: *XXOO++)
 
 template <typename T> inline bool read(T &x) {
     bool f = false;
