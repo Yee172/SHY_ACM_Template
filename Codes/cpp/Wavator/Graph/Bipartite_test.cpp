@@ -13,7 +13,7 @@ bool dfs(int u, int co) {
 }
 
 bool check(int n) {
-    memset(c, 0, sizeof(c));
+    fill(c + 1, c + n + 1, 0);
     for (int i = 1; i <= n; ++i)
         if (c[i] == 0 && !dfs(i, 1))
             return false;
