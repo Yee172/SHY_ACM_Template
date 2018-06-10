@@ -7,7 +7,7 @@ template <typename T> inline bool read(T &x) {
         if (c == EOF)
             return false;
         if (c == '-')
-            f = true;
+            f ^= true;
     }
     for (x = 0; isdigit(c); c = gc) {
         x = x * 10 + c - 48;
