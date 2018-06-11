@@ -50,5 +50,7 @@
   - mobius_mu_sieve
   - is_prime
   - generate_factors
+- recursions
+  - get_joseph
 - segment_tree
 - template
