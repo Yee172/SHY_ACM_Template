@@ -37,7 +37,6 @@
 │   │   │   │   ├── ext_gcd.cpp
 │   │   │   │   ├── fft.cpp
 │   │   │   │   └── sieve.cpp
-│   │   │   ├── readme.md
 │   │   │   └── string
 │   │   │       └── kmp.cpp
 │   │   └── Yee_172
@@ -79,6 +78,7 @@
 │       └── Yee_172
 │           └── rectangle_drawer.py
 ├── Contents
+│   ├── CONTENT.png
 │   ├── CONTENTS.txt
 │   └── dot_generator.py
 ├── LICENSE
