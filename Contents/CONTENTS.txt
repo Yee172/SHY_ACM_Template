@@ -1,5 +1,4 @@
 .
-├── CONTENTS.txt
 ├── Codes
 │   ├── cpp
 │   │   ├── VinceBlack
@@ -79,6 +78,9 @@
 │   └── tools
 │       └── Yee_172
 │           └── rectangle_drawer.py
+├── Contents
+│   ├── CONTENTS.txt
+│   └── dot_generator.py
 ├── LICENSE
 ├── README.md
 ├── Sundries
@@ -87,4 +89,4 @@
 │   └── geometry_drafts.pdf
 └── contents_generator.sh~
 
-17 directories, 70 files
+18 directories, 71 files

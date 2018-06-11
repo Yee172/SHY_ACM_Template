@@ -1,6 +1,16 @@
 folderpath=$(cd `dirname $0`; pwd)
 cd $folderpath
-tree > CONTENTS.txt
-echo ----------
-echo " Finished"
-echo ----------
+tree > ./Contents/CONTENTS.txt
+echo ------------------------------------
+echo " Successfully generated CONTENT.txt"
+echo ------------------------------------
+cd Contents
+python3 dot_generator.py
+echo "   Successfully generated tmp.dot"
+echo ------------------------------------
+dot tmp.dot -T png -o CONTENT.png
+echo " Successfully generated CONTENT.png"
+echo ------------------------------------
+rm tmp.dot
+echo "              Finished"
+echo ------------------------------------
