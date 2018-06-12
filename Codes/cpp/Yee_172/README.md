@@ -44,6 +44,7 @@
   - ```^``` (fast power)
   - print
   - [cyclic optimized]
+  - [templatized]
 - number_theory
   - euler_sieve
   - euler_funcion_sieve
