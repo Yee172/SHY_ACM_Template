@@ -5,7 +5,7 @@ struct Matrix
     int n;
     vector<vector<type> > a;
     Matrix(int n = 0, type dig = 0) : n(n) {
-        a = vector<vector<type> >((unsigned int)n, vector<type>(n, 0));
+        a = vector<vector<type> >((unsigned int)n, vector<type>((unsigned int)n, 0));
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
                 a[i][j] = dig;
