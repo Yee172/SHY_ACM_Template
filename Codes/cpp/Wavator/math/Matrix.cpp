@@ -22,23 +22,23 @@ struct Matrix
                     res[i][j] += a[i][k] * b[k][j] % mod, res[i][j] %= mod;
         return res;
     }
-    
+
     void operator *= (Matrix &b){
         *this = (*this) * b;
     }
-    
+
     void operator ^= (long long t) {
         *this = *this ^ t;
     }
-    
+
     Matrix operator^(long long t) const {
         Matrix res(n);
         for(int i = 0; i < n; ++i)
             res[i][i] = 1;
-        Matrix tmp = *this;
-        for(; t; t >>= 1, tmp = tmp * tmp)
+        Matrix a = *this;
+        for(; t; t >>= 1, a = a * a)
             if (t & 1)
-                res = res * tmp;
+                res = res * a;
         return res;
     }
 
