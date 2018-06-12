@@ -1,21 +1,21 @@
-struct Matrix
-{
-#define type long long
-    static const long long mod = 1000000007;
+template <typename type>
+class mat {
+public:
+    static const long long mod = 0x989687;
     int n;
-    vector<vector<type> > a;
-    Matrix(int n = 0, type dig = 0) : n(n) {
-        a = vector<vector<type> >((unsigned int)n, vector<type>((unsigned int)n, 0));
+    vector<vector<type > > a;
+    mat(int n = 0, type dig = 0) : n(n) {
+        a = vector<vector<type> >(n, vector<type>(n, 0));
         for (int i = 0; i < n; ++i)
-            for (int j = 0; j < n; ++j)
-                a[i][j] = dig;
+            a[i][i] = dig;
     }
-    vector<type> operator[](int i) {
-        return a[i];
+
+    vector<type>&operator[](const int m){
+        return a[m];
     }
-    Matrix operator * (Matrix &b) const
-    {
-        Matrix res(n);
+
+    mat operator * (mat &b) const {
+        mat res(n);
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
                 for (int k = 0; k < n; ++k)
@@ -23,24 +23,21 @@ struct Matrix
         return res;
     }
 
-    void operator *= (Matrix &b){
+    void operator *= (mat &b) {
         *this = (*this) * b;
     }
 
     void operator ^= (long long t) {
         *this = *this ^ t;
     }
-
-    Matrix operator^(long long t) const {
-        Matrix res(n);
+    mat operator^(long long t) const {
+        mat res(n);
         for(int i = 0; i < n; ++i)
             res[i][i] = 1;
-        Matrix a = *this;
+        mat a = *this;
         for(; t; t >>= 1, a = a * a)
             if (t & 1)
                 res = res * a;
         return res;
     }
-
-#undef type
 };
