@@ -1,7 +1,7 @@
 struct Matrix
 {
 #define type long long
-    static const mod = 1000000007;
+    static const long long mod = 1000000007;
     int n;
     vector<vector<type> > a;
     Matrix(int n = 0, type dig = 0) : n(n) {
