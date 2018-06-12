@@ -15,7 +15,7 @@ public:
     }
 
     mat operator * (mat &b) const {
-        mat res(n);
+        mat<type> res(n);
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
                 for (int k = 0; k < n; ++k)
@@ -31,10 +31,10 @@ public:
         *this = *this ^ t;
     }
     mat operator^(long long t) const {
-        mat res(n);
+        mat<type> res(n);
         for(int i = 0; i < n; ++i)
             res[i][i] = 1;
-        mat a = *this;
+        auto a = *this;
         for(; t; t >>= 1, a = a * a)
             if (t & 1)
                 res = res * a;
