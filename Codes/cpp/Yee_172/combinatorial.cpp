@@ -18,7 +18,7 @@ void init_factorial()
 #else
     for (ll i = 1; i < MAXN, i <= 20; i++)
         factorial[i] = i * factorial[i - 1];
-    //MAXIMUM 20
+    //MAXIMUM 20 for long long
 #endif
 }
 
@@ -42,7 +42,7 @@ void init_derangement()
 #else
     for (ll i = 3; i < MAXN, i <= 20; i++)
         derangement[i] = (i - 1) * (derangement[i - 1] + derangement[i - 2]);
-    //MAXIMUM 20
+    //MAXIMUM 20 for long long
 #endif
 }
 
@@ -69,7 +69,7 @@ void init_catalan()
         catalan[i] = catalan[i - 1] * (4 * i - 2) / (i + 1);
     if (MAXN > 34) catalan[34] = 812944042149730764;
     if (MAXN > 35) catalan[35] = 3116285494907301262;
-    // MAXIMUM 35
+    // MAXIMUM 35 for long long
 #endif
 }
 
