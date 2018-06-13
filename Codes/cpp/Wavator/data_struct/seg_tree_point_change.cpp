@@ -31,7 +31,7 @@ public:
         build(1, n, 1, in);
     }
 
-    void change(int pos, type x, int l, int r, int rt, const function<type(type, type)> &ff) {
+    void change(int pos, type x, int l, int r, int rt, const function<type(type, type)> &ff = f) {
         if (l == r) {
             a[rt] = ff(a[rt], x);
             return;
@@ -44,7 +44,7 @@ public:
         push_up(rt);
     }
 
-    inline void change(int pos, type x, const function<type(type, type)> ff) {
+    inline void change(int pos, type x, const function<type(type, type)> ff = f) {
         change(pos, x, 1, n, 1, ff);
     }
 
