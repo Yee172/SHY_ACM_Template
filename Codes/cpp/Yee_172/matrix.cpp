@@ -40,7 +40,7 @@ public:
                 rep(j, n - 1) res[i + 1][j + 1] = res[i][j];
             }
         }
-        else rep(i, n) rep(j, n) rep(k, n)
+        else rep(k, n) rep(i, n) if (a[i][k]) rep(j, n)
                     {
 #ifdef mod
                         res[i][j] += a[i][k] * b[k][j] % mod, res[i][j] %= mod;
