@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-struct segTree {
-#define type int
+template <typename type>
+class segTree {
     vector<type> a;
     int n;
     void init(int n) {
@@ -29,8 +28,10 @@ struct segTree {
     }
 
     void change(int pos, type x, int l, int r, int rt) {
-        if (l == r)
-            return (void)(a[rt] = x);
+        if (l == r) {
+            a[rt] = x;
+            return;
+        }
         int mid = l + r >> 1;
         if (pos <= mid)
             change(pos, x, l, mid, rt << 1);
@@ -58,14 +59,4 @@ struct segTree {
     inline type query(int L, int R) {
         return query(L, R, 1, n, 1);
     }
-
-#undef type
 };
-
-int main() {
-#ifdef Wavator
-    freopen("test.in", "r", stdin);
-#endif
-
-    return 0;
-}
