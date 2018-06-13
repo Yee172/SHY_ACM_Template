@@ -52,6 +52,7 @@
   - is_prime
   - generate_factors
 - recursions
-  - get_joseph
+  - Joseph problem
+  - final nonzero digit of n! (A008904 - OEIS)
 - segment_tree
 - template
