@@ -22,6 +22,7 @@
 │   │   │   │   ├── topo_bfs.cpp
 │   │   │   │   └── topo_dfs.cpp
 │   │   │   ├── data_struct
+│   │   │   │   ├── DSU_seq
 │   │   │   │   ├── bit.cpp
 │   │   │   │   ├── dsu.cpp
 │   │   │   │   ├── dyn_seg.cpp
@@ -33,13 +34,15 @@
 │   │   │   │   ├── 2B.cpp
 │   │   │   │   └── normal.cpp
 │   │   │   ├── math
+│   │   │   │   ├── 01trie.cpp
 │   │   │   │   ├── Matrix.cpp
 │   │   │   │   ├── cal.cpp
 │   │   │   │   ├── ext_gcd.cpp
 │   │   │   │   ├── fft.cpp
 │   │   │   │   └── sieve.cpp
 │   │   │   └── string
-│   │   │       └── kmp.cpp
+│   │   │       ├── kmp.cpp
+│   │   │       └── trie.cpp
 │   │   └── Yee_172
 │   │       ├── CRT.cpp
 │   │       ├── IO.cpp
@@ -90,4 +93,4 @@
 │   └── geometry_drafts.pdf
 └── contents_generator.sh~
 
-18 directories, 72 files
+18 directories, 75 files
