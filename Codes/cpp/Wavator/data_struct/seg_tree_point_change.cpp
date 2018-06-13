@@ -1,7 +1,12 @@
-#include <bits/stdc++.h>
-using namespace std;
 template <typename type>
 class segTree {
+public:
+    function<type(type, type)> f = [&](const type &a, const type &b) {
+        return a + b;
+    };
+
+    segTree(function<type(type, type)> f):f(f){}
+
     vector<type> a;
     int n;
     void init(int n) {
@@ -9,7 +14,7 @@ class segTree {
         a.resize(static_cast<unsigned int>(n << 2 | 1));
     }
     inline void push_up(int rt) {
-        a[rt] = a[rt << 1] + a[rt << 1 | 1];
+        a[rt] = f(a[rt << 1], a[rt << 1 | 1]);
     }
     void build(int l, int r, int rt, type * in) {
         if (l == r) {
@@ -22,41 +27,46 @@ class segTree {
         push_up(rt);
     }
 
-
-    inline void build(type * in) {
+    void build(type*in){
         build(1, n, 1, in);
     }
 
-    void change(int pos, type x, int l, int r, int rt) {
+    void change(int pos, type x, int l, int r, int rt, const function<type(type, type)> &ff) {
         if (l == r) {
-            a[rt] = x;
+            a[rt] = ff(a[rt], x);
             return;
         }
         int mid = l + r >> 1;
         if (pos <= mid)
-            change(pos, x, l, mid, rt << 1);
+            change(pos, x, l, mid, rt << 1, ff);
         else
-            change(pos, x, mid + 1, r, rt << 1 | 1);
+            change(pos, x, mid + 1, r, rt << 1 | 1, ff);
         push_up(rt);
     }
 
-    inline void change(int pos, type x) {
-        change(pos, x, 1, n, 1);
+    inline void change(int pos, type x, const function<type(type, type)> ff) {
+        change(pos, x, 1, n, 1, ff);
     }
 
     type query(int L, int R, int l, int r, int rt) {
         if (l >= L && r <= R)
             return a[rt];
         int mid = l + r >> 1;
-        type res = 0;
-        if (L <= mid)
-            res += query(L, R, l, mid, rt << 1);
-        if (R > mid)
-            res += query(L, R, mid + 1, r, rt << 1 | 1);
-        return res;
+        if (L > mid)
+            return query(L, R, mid + 1, r, rt << 1 | 1);
+        else if (R <= mid)
+            return query(L, R, l, mid, rt << 1);
+        return f(query(L, R, l, mid, rt << 1), query(L, R, mid + 1, r, rt << 1 | 1));
     }
 
     inline type query(int L, int R) {
         return query(L, R, 1, n, 1);
     }
+
 };
+
+function<int(int, int)> function1 = [&](const int &a, const int &b) {
+    return a + b;
+};
+
+segTree<int> tree(function1);
