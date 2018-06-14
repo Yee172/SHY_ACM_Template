@@ -8,8 +8,8 @@ cd Contents
 python3 dot_generator.py
 echo "   Successfully generated tmp.dot"
 echo ------------------------------------
-dot tmp.dot -T png -o CONTENT.png
-echo " Successfully generated CONTENT.png"
+dot tmp.dot -T png -o CONTENTS.png
+echo " Successfully generated CONTENTS.png"
 echo ------------------------------------
 rm tmp.dot
 echo "              Finished"
