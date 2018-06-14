@@ -1,18 +1,19 @@
 class DSU {
 public:
+    DSU(int n = 0){init(n);}
     vector<int> p, r;
     void init(int n) {
         p.resize(n+1);
         r.resize(n+1);
-        for(int i = 0; i <= n; i++) {
-            p[i] = i;
-            r[i] = 0;
-        }
+        iota(p.begin(),p.end(),0);
+        fill(r.begin(),r.end(),0);
     }
     int find(int x) {
-        return p[x] == x? x: p[x] = find(p[x]);
+        if (p[x] == x)
+            return x;
+        return p[x] = find(p[x]);
     }
-    bool unite(int x,int y) {
+    inline bool unite(int x,int y) {
         x = find(x);
         y = find(y);
         if(x == y)
@@ -26,7 +27,7 @@ public:
         }
         return true;
     }
-    bool same(int x,int y) {
+    inline bool same(int x,int y) {
         return find(x)==find(y);
     }
 };
