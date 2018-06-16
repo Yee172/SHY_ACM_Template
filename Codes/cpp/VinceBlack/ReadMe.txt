@@ -50,3 +50,9 @@
 		windows：见dui.bat；
 		linux  ：见nick.sh；
 	}
+	简陋日历{
+		见Calendar.cpp
+	}
+	英语数字{
+		见EnglishNumeral.cpp
+	}
