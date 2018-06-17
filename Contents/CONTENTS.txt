@@ -32,6 +32,8 @@
 │   │   │   │   ├── seg_tree_point_change.cpp
 │   │   │   │   └── st.cpp
 │   │   │   ├── debug_cf.cpp
+│   │   │   ├── geometry
+│   │   │   │   └── basic.cpp
 │   │   │   ├── includes.cpp
 │   │   │   ├── io
 │   │   │   │   ├── 2B.cpp
@@ -59,7 +61,7 @@
 │   │       ├── inverse_pairs.cpp
 │   │       ├── matrix.cpp
 │   │       ├── number_theory.cpp
-│   │       ├── recursions.cpp
+│   │       ├── recursions_and_sequences.cpp
 │   │       ├── segment_tree.cpp
 │   │       └── template.cpp
 │   ├── java
@@ -97,4 +99,4 @@
 │   └── geometry_drafts.pdf
 └── contents_generator.sh~
 
-18 directories, 79 files
+19 directories, 80 files
