@@ -23,6 +23,12 @@ a = Decimal(1)
 a = Decimal('0.3')
 
 
+from heapq import heappop, heappush
+a = []
+heappush(a, 1)
+p = heappop(a)
+
+
 '''
 a -> args
 k -> kwargs
