@@ -58,5 +58,6 @@
   - [A046090 - OEIS](http://oeis.org/A046090) ( ```a``` * (```a``` - 1) = 2 * b * (b - 1) )
   - [A166079 - OEIS](http://oeis.org/A166079) ( n pay phones get ```a``` people )
   - [A185456 - OEIS](http://oeis.org/A185456) ( n people get ```a``` pay phones )
+  - [PE - Problem 37](https://projecteuler.net/problem=37) (Double direction truncatable primes)
 - segment_tree
 - template
