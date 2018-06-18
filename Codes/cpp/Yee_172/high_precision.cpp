@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
 // modified from
 // https://github.com/wcysai/CodeTemplates/blob/master/Math/BigNum.cpp
