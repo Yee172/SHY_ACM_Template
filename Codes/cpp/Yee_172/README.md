@@ -5,6 +5,7 @@
   - derangement
   - catalan
   - binomial
+  - stiring numbers of the first kind
   - stiring numbers of the second kind
 - CRT
   - extend_gcd
@@ -58,6 +59,7 @@
   - [A046090 - OEIS](http://oeis.org/A046090) ( ```a``` * (```a``` - 1) = 2 * b * (b - 1) )
   - [A166079 - OEIS](http://oeis.org/A166079) ( n pay phones get ```a``` people )
   - [A185456 - OEIS](http://oeis.org/A185456) ( n people get ```a``` pay phones )
+  - [PE - Problem 32](https://projecteuler.net/problem=32) (Pandigital products)
   - [PE - Problem 37](https://projecteuler.net/problem=37) (Double direction truncatable primes)
 - segment_tree
 - template
