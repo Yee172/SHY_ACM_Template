@@ -78,29 +78,60 @@ vector<TYPE> catalan[MAXN]; // catalan[in_stack][out_stack]
 void init_catalan()
 {
     for (ll i = 0; i < MAXN; i++)
-        catalan[i].push_back((TYPE) 1);
+        catalan[i] = vector<TYPE>((unsigned) i + 1, 1);
     for (ll i = 1; i < MAXN; i++)
     {
         for (ll j = 1; j < i; j++)
-            catalan[i].push_back(catalan[i - 1][j] + catalan[i][j - 1]);
-        catalan[i].push_back(catalan[i][i - 1]);
+        {
+#ifdef mod
+            catalan[i][j] = (catalan[i - 1][j] + catalan[i][j - 1]) % mod;
+#else
+            catalan[i][j] = catalan[i - 1][j] + catalan[i][j - 1];
+#endif
+        }
+        catalan[i][i] = catalan[i][i - 1];
     }
 }
 
 
-const ll N = 205;
-const ll M = 105;
-ll binomial[N][M];
+vector<TYPE> binomial[MAXN];
 void init_binomial()
 {
+    for (ll i = 0; i < MAXN; i++)
+        binomial[i] = vector<TYPE>((unsigned) i + 1, 1);
+    for (ll i = 1; i < MAXN; i++)
+    {
+        for (ll j = 1; j < i; j++)
+        {
 #ifdef mod
-    rep(i, N) binomial[i][0] = 1;
-    rep(i, N - 1) rep(j, M - 1) binomial[i + 1][j + 1] = (binomial[i][j + 1] + binomial[i][j]) % mod;
+            binomial[i][j] = (binomial[i - 1][j] + binomial[i - 1][j - 1]) % mod;
 #else
-    rep(i, N) binomial[i][0] = 1;
-    rep(i, N - 1) rep(j, M - 1) binomial[i + 1][j + 1] = binomial[i][j + 1] + binomial[i][j];
+            binomial[i][j] = binomial[i - 1][j] + binomial[i - 1][j - 1];
 #endif
+        }
+    }
 }
+
+
+vector<TYPE> stirling_first[MAXN];
+void init_stirling_first()
+{
+    for (ll i = 0; i < MAXN; i++)
+        stirling_first[i] = vector<TYPE>((unsigned) i + 1, 0);
+    for (ll i = 1; i < MAXN; i++)
+    {
+        for (ll j = 1; j < i; j++)
+        {
+#ifdef mod
+            stirling_first[i][j] = ((i - 1) * stirling_first[i - 1][j] % mod + stirling_first[i - 1][j - 1]) % mod;
+#else
+            stirling_first[i][j] = (i - 1) * stirling_first[i - 1][j] + stirling_first[i - 1][j - 1];
+#endif
+        }
+        stirling_first[i][i] = (TYPE) 1;
+    }
+}
+
 
 // stiring numbers of the second kind
 ll powmod(ll a,ll b) {ll r = 1; a %= mod; for(; b; b >>= 1) {if (b & 1) r = r * a % mod; a = a * a % mod;} return r;}
