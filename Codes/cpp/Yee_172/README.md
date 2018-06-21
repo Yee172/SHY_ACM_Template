@@ -64,6 +64,7 @@
   - [A166079 - OEIS](http://oeis.org/A166079) ( n pay phones get ```a``` people )
   - [A185456 - OEIS](http://oeis.org/A185456) ( n people get ```a``` pay phones )
   - [PE - Problem 32](https://projecteuler.net/problem=32) (Pandigital products)
+  - [PE - Problem 34](https://projecteuler.net/problem=34) (Digit factorials)
   - [PE - Problem 37](https://projecteuler.net/problem=37) (Double direction truncatable primes)
 - segment_tree
 - template
