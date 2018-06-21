@@ -2,6 +2,7 @@
 
 - combinatorial
   - factorial
+  - inverse factorial
   - derangement
   - catalan
   - binomial

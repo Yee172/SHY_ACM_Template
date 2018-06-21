@@ -28,29 +28,63 @@ void init_factorial()
 {
     factorial[0] = (TYPE) 1;
     for (ll i = 1; i < MAXN; i++)
+    {
+#ifdef MOD
+        factorial[i] = (TYPE) i * factorial[i - 1] % MOD;
+#else
         factorial[i] = (TYPE) i * factorial[i - 1];
+#endif
+    }
 }
+
+
+#ifdef MOD
+ll mod_inverse[MAXN];
+ll factorial_inverse[MAXN];
+void init_factorial_inverse()
+{
+    mod_inverse[0] = 0, factorial_inverse[0] = mod_inverse[1] = 1;
+    for (ll i = 2; i < MAXN; i++)
+        mod_inverse[i] = (MOD - MOD / i) * mod_inverse[MOD % i] % MOD;
+    for (ll i = 1; i < MAXN; i++)
+        factorial_inverse[i] = factorial_inverse[i - 1] * mod_inverse[i] % MOD;
+}
+#endif
 
 
 ll derangement[MAXN];
 void init_derangement()
 {
-    derangement[0] = 1, derangement[1] = 0, derangement[2] = 1;
+    derangement[1] = 0, derangement[0] = derangement[2] = 1;
 #ifdef MOD
     for (ll i = 3; i < MAXN; i++)
-        derangement[i] = (i - 1) * ((derangement[i - 1] + derangement[i - 2]) % MOD) % MOD;
+        derangement[i] = (derangement[i - 1] + derangement[i - 2]) % MOD * (i - 1) % MOD;
 #else
     for (ll i = 3; i < MAXN && i <= 20; i++)
-        derangement[i] = (i - 1) * (derangement[i - 1] + derangement[i - 2]);
+        derangement[i] = (derangement[i - 1] + derangement[i - 2]) * (i - 1);
     //MAXIMUM 20 for long long
 #endif
+}
+
+
+TYPE derangement[MAXN];
+void init_derangement()
+{
+    derangement[1] = 0, derangement[0] = derangement[2] = 1;
+    for (ll i = 3; i < MAXN; i++)
+    {
+#ifdef MOD
+        derangement[i] = (derangement[i - 1] + derangement[i - 2]) % MOD * ((TYPE) (i - 1)) % MOD;
+#else
+        derangement[i] = (derangement[i - 1] + derangement[i - 2]) * ((TYPE) (i - 1));
+#endif
+    }
 }
 
 
 ll catalan[MAXN];
 #ifdef MOD
 ll mod_inverse[MAXN];
-ll factorial_inverse[MAXN];
 #endif
 void init_catalan()
 {
@@ -59,11 +93,8 @@ void init_catalan()
     mod_inverse[0] = 0, mod_inverse[1] = 1;
     for (ll i = 2; i < MAXN; i++)
         mod_inverse[i] = (MOD - MOD / i) * mod_inverse[MOD % i] % MOD;
-    factorial_inverse[0] = 1;
-    for (ll i = 1; i < MAXN; i++)
-        factorial_inverse[i] = factorial_inverse[i - 1] * mod_inverse[i] % MOD;
     for (ll i = 2; i < MAXN; i++)
-        catalan[i] = catalan[i - 1] * (4 * i - 2) % MOD * factorial_inverse[i + 1] % MOD;
+        catalan[i] = catalan[i - 1] * (4 * i - 2) % MOD * mod_inverse[i + 1] % MOD;
 #else
     for (ll i = 2; i < MAXN && i <= 33; i++)
         catalan[i] = catalan[i - 1] * (4 * i - 2) / (i + 1);
@@ -71,6 +102,21 @@ void init_catalan()
     if (MAXN > 35) catalan[35] = 3116285494907301262;
     // MAXIMUM 35 for long long
 #endif
+}
+
+
+TYPE catalan[MAXN];
+void init_catalan()
+{
+    catalan[1] = 1;
+    for (ll i = 2; i < MAXN; i++)
+    {
+#ifdef MOD
+        catalan[i] = catalan[i - 1] * (4 * i - 2) / (i + 1) % MOD;
+#else
+        catalan[i] = catalan[i - 1] * (4 * i - 2) / (i + 1);
+#endif
+    }
 }
 
 
