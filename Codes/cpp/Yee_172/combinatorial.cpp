@@ -16,7 +16,7 @@ void init_factorial()
     for (ll i = 1; i < MAXN; i++)
         factorial[i] = i * factorial[i - 1] % mod;
 #else
-    for (ll i = 1; i < MAXN, i <= 20; i++)
+    for (ll i = 1; i < MAXN && i <= 20; i++)
         factorial[i] = i * factorial[i - 1];
     //MAXIMUM 20 for long long
 #endif
@@ -40,7 +40,7 @@ void init_derangement()
     for (ll i = 3; i < MAXN; i++)
         derangement[i] = (i - 1) * ((derangement[i - 1] + derangement[i - 2]) % mod) % mod;
 #else
-    for (ll i = 3; i < MAXN, i <= 20; i++)
+    for (ll i = 3; i < MAXN && i <= 20; i++)
         derangement[i] = (i - 1) * (derangement[i - 1] + derangement[i - 2]);
     //MAXIMUM 20 for long long
 #endif
@@ -65,7 +65,7 @@ void init_catalan()
     for (ll i = 2; i < MAXN; i++)
         catalan[i] = catalan[i - 1] * (4 * i - 2) % mod * factorial_inverse[i + 1] % mod;
 #else
-    for (ll i = 2; i < MAXN, i <= 33; i++)
+    for (ll i = 2; i < MAXN && i <= 33; i++)
         catalan[i] = catalan[i - 1] * (4 * i - 2) / (i + 1);
     if (MAXN > 34) catalan[34] = 812944042149730764;
     if (MAXN > 35) catalan[35] = 3116285494907301262;
@@ -129,6 +129,26 @@ void init_stirling_first()
 #endif
         }
         stirling_first[i][i] = (TYPE) 1;
+    }
+}
+
+
+vector<TYPE> stirling_second[MAXN];
+void init_stirling_second()
+{
+    for (ll i = 0; i < MAXN; i++)
+        stirling_second[i] = vector<TYPE>((unsigned) i + 1, 0);
+    for (ll i = 1; i < MAXN; i++)
+    {
+        for (ll j = 1; j < i; j++)
+        {
+#ifdef mod
+            stirling_second[i][j] = (j * stirling_second[i - 1][j] % mod + stirling_second[i - 1][j - 1]) % mod;
+#else
+            stirling_first[i][j] = j * stirling_first[i - 1][j] + stirling_first[i - 1][j - 1];
+#endif
+        }
+        stirling_second[i][i] = (TYPE) 1;
     }
 }
 
