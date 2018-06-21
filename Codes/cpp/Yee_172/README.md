@@ -5,8 +5,11 @@
   - derangement
   - catalan
   - binomial
-  - stiring numbers of the first kind
-  - stiring numbers of the second kind
+  - stirling numbers of the first kind
+  - stirling numbers of the second kind
+  - stirling numbers of the second kind (single one, complexity: O(mlogn))
+  - bell (bell triangle)
+  - bell (linear space)
 - CRT
   - extend_gcd
   - chinese_remainder
