@@ -8,6 +8,7 @@ vector<ll> prime;
 bool vis[MAXN];
 void euler_sieve()
 {
+    vis[1]=1;
     for (ll i = 2; i < MAXN; i++)
     {
         if (!vis[i]) prime.push_back(i);
