@@ -58,6 +58,7 @@
   - generate_factors
 - recursions
   - Joseph problem
+  - [A006522 - OEIS](http://oeis.org/A006522) (```a``` = n-gon maximum regions)
   - [A008904 - OEIS](http://oeis.org/A008904) ( ```a``` = final nonzero digit of n! )
   - [A011900 - OEIS](http://oeis.org/A011900) ( b * (b - 1) = 2 * ```a``` * (```a``` - 1) )
   - [A046090 - OEIS](http://oeis.org/A046090) ( ```a``` * (```a``` - 1) = 2 * b * (b - 1) )

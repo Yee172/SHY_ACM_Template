@@ -3,7 +3,7 @@ using namespace std;
 typedef long long ll;
 #define MAXN 200050
 #define TYPE ll
-#define mod 0x3b9aca07
+#define MOD 0x3b9aca07
 
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@ TYPE get_joseph(TYPE n, TYPE m)
     if (n == 1) return 0;
     else return (get_joseph(n - 1, m) + m) % n;
 }
-// return who stands to the last labeled from 0
+// return who stands to the last labeled from 0.
 
 TYPE a[MAXN];
 void init_joseph(TYPE m)
@@ -32,8 +32,38 @@ void init_joseph(TYPE m)
 
 
 // ---------------------------------------------------------------------------------------------------------------------
+// A006522 - OEIS
+// {1, 0, 0, 1, 4, 11, 25, 50, 91, 154, 246, 375, 550, ...}
+// Number of regions created by sides and diagonals of n-gon in general position.
+// Also is the 4-dimensional analog of centered polygonal numbers.
+// a(n) = binomial(n, 4) + binomial(n - 1, 2)
+//      = (n ^ 4 - 6 * n ^ 3 + 23 * n ^ 2 - 42 * n + 24) / 24
+// a[n] = the maximum number of regions created by sides and diagonals of n-gon.
+TYPE a[MAXN];
+void initialize()
+{
+    a[0] = a[3] = 1, a[1] = a[2] = 0, a[4] = 4;
+    for (ll i = 5; i < MAXN; i++)
+    {
+#ifdef MOD
+        a[i] = a[i - 1] * ((TYPE) 5) % MOD;
+        a[i] -= a[i - 2] * ((TYPE) 10) % MOD;
+        a[i] += a[i - 3] * ((TYPE) 10) % MOD;
+        a[i] -= a[i - 4] * ((TYPE) 5) % MOD;
+        a[i] += a[i - 5] + MOD;
+        a[i] %= MOD;
+#else
+        a[i] = 5 * a[i - 1] - 10 * a[i - 2] + 10 * a[i - 3] - 5 * a[i - 4] + a[i - 5];
+#endif
+    }
+}
+// ---------------------------------------------------------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------------------------------------------------------
 // A008904 - OEIS
-// a[n] = final nonzero digit of n!
+// {1, 1, 2, 6, 4, 2, 2, 4, 2, 8, 8, 8, 6, 8, 2, 8, 8, ...}
+// a[n] = final nonzero digit of n!.
 TYPE a[MAXN];
 TYPE ini[] = {1, 1, 2, 6, 4, 4, 4, 8, 4, 6};
 void initialize()
@@ -53,15 +83,16 @@ void initialize()
 // ---------------------------------------------------------------------------------------------------------------------
 // A011900 - OEIS
 // Related to A046090
-// Solution to b * (b - 1) = 2 * a * (a - 1) in natural numbers
-// a[n] = the n-th of a in ascending order
+// {1, 3, 15, 85, 493, 2871, 16731, 97513, 568345, ...}
+// Solution to b * (b - 1) = 2 * a * (a - 1) in natural numbers.
+// a[n] = the n-th of a in ascending order.
 TYPE a[MAXN];
 void initialize()
 {
     a[0] = 1, a[1] = 3;
-#ifdef mod
+#ifdef MOD
     for (ll i = 2; i < MAXN; i++)
-        a[i] = (6 * a[i - 1] % mod - a[i - 2] - 2 + 2 * mod) % mod;
+        a[i] = (6 * a[i - 1] % MOD - a[i - 2] - 2 + 2 * MOD) % MOD;
 #else
     for (ll i = 2; i < MAXN, i <= 25; i++)
         a[i] = 6 * a[i - 1] - a[i - 2] - 2;
@@ -74,17 +105,18 @@ void initialize()
 // ---------------------------------------------------------------------------------------------------------------------
 // A046090 - OEIS
 // Related to A011900
-// Solution to a * (a - 1) = 2 * b * (b - 1) in natural numbers
-// a[n] = the n-th of a in ascending order
+// {1, 4, 21, 120, 697, 4060, 23661, 137904, 803761, ...}
+// Solution to a * (a - 1) = 2 * b * (b - 1) in natural numbers.
+// a[n] = the n-th of a in ascending order.
 TYPE a[MAXN];
 void initialize()
 {
     a[0] = 1, a[1] = 4;
-#ifdef mod
+#ifdef MOD
     for (ll i = 2; i < MAXN; i++)
-        a[i] = (6 * a[i - 1] % mod - a[i - 2] - 2 + 2 * mod) % mod;
+        a[i] = (6 * a[i - 1] % MOD - a[i - 2] - 2 + 2 * MOD) % MOD;
 #else
-    for (ll i = 2; i < MAXN, i <= 25; i++)
+    for (ll i = 2; i < MAXN && i <= 25; i++)
         a[i] = 6 * a[i - 1] - a[i - 2] - 2;
     // MAXIMUM 25 for long long
 #endif
@@ -95,12 +127,13 @@ void initialize()
 // ---------------------------------------------------------------------------------------------------------------------
 // A166079 - OEIS
 // Related to A185456
+// {0, 1, 1, 2, 2, 3, 3, 3, 4, 5, 5, 5, 5, 5, 6, 7, ...}
 // Given a row of n pay phones, all initially unused,
 // a[n] people can use the pay phones, assuming
-// (1) each always chooses one of the most distant
-//     pay phones from those in use already,
-// (2) the first person takes a phone at the end,
-// (3) no people use adjacent phones.
+//     (1) each always chooses one of the most distant
+//         pay phones from those in use already,
+//     (2) the first person takes a phone at the end,
+//     (3) no people use adjacent phones.
 TYPE a[MAXN];
 void initialize()
 {
@@ -114,6 +147,7 @@ void initialize()
 // ---------------------------------------------------------------------------------------------------------------------
 // A185456 - OEIS
 // Related to A166079
+// {0, 1, 3, 5, 8, 9, 14, 15, 16, 17, 26, 27, 28, 29, ...}
 // Assume that the first person to use a bank of pay phones
 // selects one at the end, and all subsequent users select the
 // phone which puts them furthest from the current phone users.
@@ -138,10 +172,10 @@ void initialize()
 
 
 // ---------------------------------------------------------------------------------------------------------------------
-// Pandigital products
 // PE - Problem 32
+// Pandigital products
 // Products whose multiplicand/multiplier/product identity
-// can be written as a 1 through 9 pandigital
+// can be written as a 1 through 9 pandigital.
 // 138 * 42 = 5796
 // 157 * 28 = 4396
 // 159 * 48 = 7632
@@ -149,27 +183,27 @@ void initialize()
 // 186 * 39 = 7254
 // 1963 * 4 = 7852
 // 198 * 27 = 5346
-// Only 7 products are pandigital products
+// Only 7 products are pandigital products.
 TYPE a[] = {4396, 5346, 5796, 6952, 7254, 7632, 7852};
 // ---------------------------------------------------------------------------------------------------------------------
 
 
 // ---------------------------------------------------------------------------------------------------------------------
-// Digit factorials
 // PE - Problem 34
-// Numbers which are equal to the sum of the factorial of their digits
+// Digit factorials
+// Numbers which are equal to the sum of the factorial of their digits.
 // 1! + 4! + 5! = 145
 // 4! + 0! + 5! + 8! + 5! = 40585
-// Only 2 numbers satisfy this nature
+// Only 2 numbers satisfy this nature.
 TYPE a[] = {145, 40585};
 // ---------------------------------------------------------------------------------------------------------------------
 
 
 // ---------------------------------------------------------------------------------------------------------------------
-// Double direction truncatable primes
 // PE - Problem 37
+// Double direction truncatable primes.
 // Take 3797 for example:
 //     3797, 797, 97, 7 & 3797, 379, 37, 3 are all primes
-// Only 11 primes that are double direction truncatable
+// Only 11 primes that are double direction truncatable.
 TYPE a[] = {23, 37, 53, 73, 313, 317, 373, 797, 3137, 3797, 739397};
 // ---------------------------------------------------------------------------------------------------------------------
