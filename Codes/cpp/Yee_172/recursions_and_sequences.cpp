@@ -32,6 +32,64 @@ void init_joseph(TYPE m)
 
 
 // ---------------------------------------------------------------------------------------------------------------------
+// A000267 - OEIS
+// {1, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, ...}
+// Integer part of square root of 4 * n + 1.
+// [*] This sequence can simplify discussion of this form:
+//         If (n + 1 = p * p),
+//             a(n) = 2 * p - 1;
+//         If (p * p < n + 1 <= p * (p + 1)),
+//             a(n) = 2 * p;
+//         If (p * (p + 1) < n + 1 < (p + 1) * (p + 1)),
+//             a(n) = 2 * p + 1.
+// a[n] = int(sqrt(4 * n + 1))
+// I recommend other languages with high precision
+// ---------------------------------------------------------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// A001462 - OEIS
+// {N/A, 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, ...}
+// Golomb's sequence.
+// a(1) = 1; a(n + 1) = 1 + a(n + 1 - a(a(n))).
+// a[n] = the number of times n occurs.
+TYPE a[MAXN];
+void initialize()
+{
+    a[0] = 0; // N/A
+    a[1] = 1;
+    for (ll i = 2; i < MAXN; i++)
+        a[i] = 1 + a[i - a[a[i - 1]]];
+}
+
+vector<TYPE> indices;
+template <typename T>
+TYPE find_index(T x)
+{
+    return (TYPE) (lower_bound(indices.begin(), indices.end(), (TYPE) x) - indices.begin());
+}
+void initialize()
+{
+    indices.push_back(0);
+    indices.push_back(1);
+    indices.push_back(3);
+    TYPE x = 0;
+    for (ll i = 3; x <= MAXN; i++)
+    {
+        x = *(indices.end() - 1) + find_index(i);
+        indices.push_back(x);
+    }
+}
+template <typename T>
+TYPE get_a(T n)
+{
+    assert(n > 0);
+    return find_index(n);
+}
+// ---------------------------------------------------------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------------------------------------------------------
 // A006522 - OEIS
 // {1, 0, 0, 1, 4, 11, 25, 50, 91, 154, 246, 375, 550, ...}
 // Number of regions created by sides and diagonals of n-gon in general position.
@@ -50,12 +108,30 @@ void initialize()
         a[i] -= a[i - 2] * ((TYPE) 10) % MOD;
         a[i] += a[i - 3] * ((TYPE) 10) % MOD;
         a[i] -= a[i - 4] * ((TYPE) 5) % MOD;
-        a[i] += a[i - 5] + MOD;
-        a[i] %= MOD;
+        a[i] = (a[i] + a[i - 5] + MOD) % MOD;
 #else
-        a[i] = 5 * a[i - 1] - 10 * a[i - 2] + 10 * a[i - 3] - 5 * a[i - 4] + a[i - 5];
+        a[i] = a[i - 1] * ((TYPE) 5)
+        a[i] -= a[i - 2] * ((TYPE) 10)
+        a[i] += a[i - 3] * ((TYPE) 10)
+        a[i] -= a[i - 4] * ((TYPE) 5)
+        a[i] += a[i - 5];
 #endif
     }
+}
+
+template <typename T>
+TYPE get_a(T n)
+{
+    TYPE x = (TYPE) n;
+    TYPE x_square = x * x;
+    TYPE res;
+    res = x_square * x_square;
+    res -= x_square * x * ((TYPE) 6);
+    res += x_square * ((TYPE) 23);
+    res -= x * ((TYPE) 42);
+    res += (TYPE) 24;
+    res = res / 24;
+    return res;
 }
 // ---------------------------------------------------------------------------------------------------------------------
 

@@ -56,8 +56,10 @@
   - mobius_mu_sieve
   - is_prime
   - generate_factors
-- recursions
+- recursions_and_sequences
   - Joseph problem
+  - [A000267 - OEIS](http://oeis.org/A000267) (```a``` = int(sqrt(4 * n + 1)) )
+  - [A001462 - OEIS](http://oeis.org/A001462) (```a``` = number of times n occurs)
   - [A006522 - OEIS](http://oeis.org/A006522) (```a``` = n-gon maximum regions)
   - [A008904 - OEIS](http://oeis.org/A008904) ( ```a``` = final nonzero digit of n! )
   - [A011900 - OEIS](http://oeis.org/A011900) ( b * (b - 1) = 2 * ```a``` * (```a``` - 1) )
