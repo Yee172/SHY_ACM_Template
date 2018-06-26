@@ -15,8 +15,7 @@ MAX_LENGTH = 0
 with open(SOURCE, 'r') as f:
     CONTENT = f.read().strip().replace('\xa0', ' ').split('\n')
 
-for each_line in CONTENT:
-    MAX_LENGTH = max(MAX_LENGTH, len(each_line))
+MAX_LENGTH = max(map(len, CONTENT))
 for index, each_line in enumerate(CONTENT):
     CONTENT[index] = each_line + ' ' * (MAX_LENGTH - len(each_line))
 
