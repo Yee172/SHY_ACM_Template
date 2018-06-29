@@ -5,7 +5,7 @@ struct Trie_tree {
         int value;
     } *trie;
 
-    Trie tries[100002];
+    Trie tries[102];
 
     Trie_tree(){}
 
