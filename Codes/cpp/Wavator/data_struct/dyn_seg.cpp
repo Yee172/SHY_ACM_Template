@@ -1,6 +1,9 @@
+#include <bits/stdc++.h>
+using namespace std;
 int pid;
 struct dyn_seg
 {
+    static const int N = 300010 * 64;
     struct seg
     {
         int l, r, cnt, flg;
@@ -9,14 +12,14 @@ struct dyn_seg
                 return;
             l = ++pid;
             r = ++pid;
+            assert(pid <= N);
         }
     };
 
-    vector<seg> s;
+    seg s[N];
 
-    void init(unsigned int n) {
+    void init() {
         ::pid = 0;
-        s.resize(n);
     }
 
     inline void push_up(int rt) {
@@ -50,3 +53,21 @@ struct dyn_seg
 };
 
 dyn_seg tree;
+
+int main() {
+#ifdef Wavator
+    freopen("test.in", "r", stdin);
+#endif
+    int n, q;
+    scanf("%d%d", &n, &q);
+    tree.init();
+    tree.s[0].cnt = n;
+    tree.s[0].flg = 1;
+    for (; q--; ) {
+        int l, r, k;
+        scanf("%d%d%d", &l, &r, &k);
+        tree.change(l, r, k == 1? -1: 1, 1, n, 0);
+        printf("%d\n", tree.s[0].cnt);
+    }
+    return 0;
+}
