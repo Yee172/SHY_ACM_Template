@@ -7,6 +7,8 @@
 │   │   │   ├── EnglishNumeral.cpp
 │   │   │   ├── MRT.cpp
 │   │   │   ├── ReadMe.txt
+│   │   │   ├── Sudoku_dancingLink.cpp
+│   │   │   ├── XjbCutUpTree_zkw.cpp
 │   │   │   ├── bitOp.cpp
 │   │   │   ├── dui.bat
 │   │   │   ├── nick.sh
@@ -87,6 +89,7 @@
 │   │       ├── inverse_pairs.cpp
 │   │       ├── matrix.cpp
 │   │       ├── number_theory.cpp
+│   │       ├── range_minimum_maximum_query.cpp
 │   │       ├── recursions_and_sequences.cpp
 │   │       ├── segment_tree.cpp
 │   │       └── template.cpp
@@ -126,4 +129,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-19 directories, 107 files
+19 directories, 110 files
