@@ -13,7 +13,7 @@ public:
 
     inline T *operator[](int i) {return dp[i];}
 
-    inline void init(T a[], int len, int start=1)//Caution: There might be some bugs if you make 'start' not equal to 1
+    inline void init(T a[], int len, int start=1)
     {
         for (int i = 1, k = start; i <= len; i++, k++)
             dp[i][0] = a[k];
@@ -22,7 +22,7 @@ public:
                 dp[i][j] = M(dp[i][j - 1], dp[i + (k >> 1)][j - 1]);
     }
 
-    inline T query(int left, int right)
+    inline T query(int left, int right)//Caution: Parameter left, right are not the subscript of a[] passed in, but dp[] which start exactly from 1.
     {
         int k = 0;
         for (; 1 << k + 1 <= right - left + 1; k++);
