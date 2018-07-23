@@ -13,7 +13,7 @@ public:
 
     inline T *operator[](int i) {return dp[i];}
 
-    inline void init(T a[], int len, int start=1)
+    inline void init(T a[], int len, int start=1)//Caution: There might be some bugs if you make 'start' not equal to 1
     {
         for (int i = 1, k = start; i <= len; i++, k++)
             dp[i][0] = a[k];
