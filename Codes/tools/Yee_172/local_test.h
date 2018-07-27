@@ -13,7 +13,7 @@ namespace __LOCAL_TEST__
                 __END__ = clock();
                 fprintf(stderr,
                         "┏TIME CONSUMED BY STAGE %d: %.12f ms\n"
-                                "┗TOTAL TIME UNTIL STAGE %d: %.12f ms\n",
+                        "┗TOTAL TIME UNTIL STAGE %d: %.12f ms\n",
                         __INDEX__,
                         (__END__ - __TEMP__) / (double)CLOCKS_PER_SEC * 1000,
                         __INDEX__,
