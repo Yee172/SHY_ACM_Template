@@ -193,17 +193,54 @@ namespace __LOCAL_TEST__
             return os << "}" << flush;
         }
 
-        void __DEBUG__() { cerr << endl; }
+        queue<vector<char> > VARIABLE;
+        void __INITIALIZE_VARIABLES__(const char * va_args)
+        {
+            while (!VARIABLE.empty()) VARIABLE.pop();
+            int length = static_cast<int>(strlen(va_args));
+            vector<char> var(0);
+            for (int i = 0; i < length; i++)
+            {
+                if (va_args[i] == ' ') continue;
+                if (va_args[i] == ',')
+                {
+                    VARIABLE.push(var);
+                    var.resize(0);
+                }
+                else var.push_back(va_args[i]);
+            }
+            VARIABLE.push(var);
+            var.resize(0);
+        }
 
-        template<typename H, typename...T>
+        char show_variable_name()
+        {
+            if (!VARIABLE.empty())
+            {
+                for (auto c : VARIABLE.front()) cerr << c;
+                VARIABLE.pop();
+            }
+            return ' ';
+        }
+
+        void __DEBUG__() { cerr << "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" << endl; }
+
+        template <typename H, typename ...T>
         void __DEBUG__(const H &head, const T &...tail)
         {
-            cerr << head;
-            if (sizeof ...(tail)) cerr << ", ";
+            cerr << "┃ " << show_variable_name() << ": " << head << endl;
             __DEBUG__(tail...);
+        }
+
+        void __SHOW_BASIC_INFO__(const char * function, const int line)
+        {
+            cerr << "\033[94m┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" << endl <<
+                            "┃ DEBUG in function '" << function << "' at line " << line << ":" << endl;
         }
     }
 }
 
 #define _______ __LOCAL_TEST__::__LOCAL_TEST__::__LOCAL_TEST__();
-#define _debug(...) __LOCAL_TEST__::__DEBUG__::__DEBUG__(__VA_ARGS__);
+#define _debug(...) __LOCAL_TEST__::__DEBUG__::__SHOW_BASIC_INFO__(__FUNCTION__, __LINE__), \
+                    __LOCAL_TEST__::__DEBUG__::__INITIALIZE_VARIABLES__(#__VA_ARGS__), \
+                    __LOCAL_TEST__::__DEBUG__::__DEBUG__(__VA_ARGS__);
