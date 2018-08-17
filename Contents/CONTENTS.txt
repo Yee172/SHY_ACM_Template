@@ -78,23 +78,40 @@
 │   │   │       └── trie.cpp
 │   │   └── Yee_172
 │   │       ├── CRT.cpp
-│   │       ├── Cartesian_tree.cpp
-│   │       ├── IO.cpp
 │   │       ├── README.md
-│   │       ├── combinatorial.cpp
-│   │       ├── disjoint_set_union.cpp
-│   │       ├── fast_Fourier_transform.cpp
-│   │       ├── geometry.cpp
+│   │       ├── data_structure
+│   │       │   ├── Cartesian_tree.cpp
+│   │       │   ├── cut_tree.cpp
+│   │       │   ├── disjoint_set_union.cpp
+│   │       │   ├── range_minimum_maximum_query.cpp
+│   │       │   └── segment_tree.cpp
+│   │       ├── geometry
+│   │       │   └── geometry.cpp
+│   │       ├── graph
+│   │       │   └── graph.cpp
 │   │       ├── graph.cpp
-│   │       ├── header.cpp
-│   │       ├── high_precision.cpp
-│   │       ├── inverse_pairs.cpp
-│   │       ├── matrix.cpp
-│   │       ├── number_theory.cpp
-│   │       ├── range_minimum_maximum_query.cpp
-│   │       ├── recursions_and_sequences.cpp
-│   │       ├── segment_tree.cpp
-│   │       └── template.cpp
+│   │       ├── math
+│   │       │   ├── combinatorial
+│   │       │   │   └── combinatorial.cpp
+│   │       │   ├── fast_Fourier_transform.cpp
+│   │       │   ├── fast_Walsh_Hadamard_transform.cpp
+│   │       │   ├── fast_mod_operation.cpp
+│   │       │   ├── high_precision.cpp
+│   │       │   ├── matrix.cpp
+│   │       │   ├── number_theory
+│   │       │   │   ├── euler_function_sieve.cpp
+│   │       │   │   ├── euler_sieve.cpp
+│   │       │   │   ├── generate_factors.cpp
+│   │       │   │   ├── is_prime.cpp
+│   │       │   │   ├── mobius_mu_sieve.cpp
+│   │       │   │   └── phi.cpp
+│   │       │   └── sqrt_k.cpp
+│   │       └── sundries
+│   │           ├── IO.cpp
+│   │           ├── header.cpp
+│   │           ├── inverse_pairs.cpp
+│   │           ├── recursions_and_sequences.cpp
+│   │           └── template.cpp
 │   ├── java
 │   │   └── Wavator
 │   │       ├── Main.java
@@ -117,7 +134,7 @@
 │   │       └── time.py
 │   └── tools
 │       └── Yee_172
-│           ├── local_test.h
+│           ├── local_test.hpp
 │           └── rectangle_drawer.py
 ├── Contents
 │   ├── CONTENTS.png
@@ -132,4 +149,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-19 directories, 113 files
+26 directories, 123 files
