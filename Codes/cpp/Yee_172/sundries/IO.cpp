@@ -62,3 +62,4 @@ namespace fast_io
     template <typename H, typename ...T>
     inline bool read(H &head, T &...tail) { return read(head) && read(tail...); }
 }
+using fast_io::read;

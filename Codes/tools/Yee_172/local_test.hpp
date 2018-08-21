@@ -1,9 +1,9 @@
 namespace __LOCAL_TEST__
 {
     map<int, string> __CHAR_TABLE__;
-    bool __SHOW_TYPE_SWITCH__ = true;
+    bool __SHOW_TYPE_SWITCH__ = false;
     bool __SHOW_TYPE_BY_ID_SWITCH__ = true;
-    bool __SHOW_ADDRESS_SWITCH__ = true;
+    bool __SHOW_ADDRESS_SWITCH__ = false;
 
     class LOCAL_TEST
     {
@@ -52,10 +52,17 @@ namespace __LOCAL_TEST__
     {
         using std::to_string;
 
-        string to_string(char object)
+        string to_string(const char object)
         {
             ostringstream os;
             __CHAR_TABLE__[object].empty() ? os << "'" << object << "'" : os << "'" << __CHAR_TABLE__[object] << "'";
+            return os.str();
+        }
+
+        string to_string(const char * object)
+        {
+            ostringstream os;
+            os << '"' << object << '"';
             return os.str();
         }
 
@@ -207,7 +214,7 @@ namespace __LOCAL_TEST__
                 else if (va_args[i] == ' ' && var.size() == 0) continue;
                 else var.push_back(va_args[i]);
             }
-            while (var.back() == ' ') var.pop_back();
+            while (!var.empty() && var.back() == ' ') var.pop_back();
             VARIABLE.push(var);
             var.resize(0);
         }

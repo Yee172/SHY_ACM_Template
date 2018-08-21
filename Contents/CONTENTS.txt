@@ -139,6 +139,10 @@
 │   └── tools
 │       └── Yee_172
 │           ├── local_test.hpp
+│           ├── random_check
+│           │   ├── AC.txt
+│           │   ├── random_check.sh
+│           │   └── random_check_special_judge.sh
 │           └── rectangle_drawer.py
 ├── Contents
 │   ├── CONTENTS.png
@@ -153,4 +157,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-26 directories, 127 files
+27 directories, 130 files
