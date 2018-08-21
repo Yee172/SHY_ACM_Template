@@ -7,9 +7,9 @@ namespace fast_io
     {
         const int __FREAD_BUFFER_SIZE__ = 1 << 20;
         char __BUFFER__[__FREAD_BUFFER_SIZE__], *__P1__=__BUFFER__, *__P2__=__BUFFER__;
-        #define __IF_END__ (__P1__ == __P2__)
-        #define __READ_ONE__ (fread(__BUFFER__, 1, __FREAD_BUFFER_SIZE__, stdin))
-        #define __GET_CHAR__ (__IF_END__ && (__P2__ = (__P1__ = __BUFFER__) + __READ_ONE__, __IF_END__) ? -1 : *__P1__++)
+#define __IF_END__ (__P1__ == __P2__)
+#define __READ_ONE__ (fread(__BUFFER__, 1, __FREAD_BUFFER_SIZE__, stdin))
+#define __GET_CHAR__ (__IF_END__ && (__P2__ = (__P1__ = __BUFFER__) + __READ_ONE__, __IF_END__) ? -1 : *__P1__++)
         template <typename T>
         inline bool read(T &x)
         {
@@ -25,45 +25,15 @@ namespace fast_io
             return true;
         }
     }
-    using namespace fast_io_head;
-
-    template <typename A, typename B>
-    inline bool read(A &a, B&b)
-    {
-        return read(a) && read(b);
-    }
-
-    template <typename A, typename B, typename C>
-    inline bool read(A &a, B &b, C &c)
-    {
-        return read(a) && read(b) && read(c);
-    }
-
-    template <typename A, typename B, typename C, typename D>
-    inline bool read(A &a, B &b, C &c, D &d)
-    {
-        return read(a) && read(b) && read(c) && read(d);
-    }
-
-    template <typename A, typename B, typename C, typename D, typename E>
-    inline bool read(A &a, B &b, C &c, D &d, E &e)
-    {
-        return read(a) && read(b) && read(c) && read(d) && read(e);
-    }
-
-    template <typename A, typename B, typename C, typename D, typename E, typename F>
-    inline bool read(A &a, B &b, C &c, D &d, E &e, F &f)
-    {
-        return read(a) && read(b) && read(c) && read(d) && read(e) && read(f);
-    }
+    using fast_io_head::read;
 
     template <typename T>
-    inline void read(vector<T> &now, const uint &sz)
-    {
-        now.resize(sz);
-        for (auto &v: now) read(v);
-    }
+    inline bool read(vector<T> &object) { bool flag = true; for (auto &v : object) flag &= read(v); return flag; }
+
+    template <typename H, typename ...T>
+    inline bool read(H &head, T &...tail) { return read(head) && read(tail...); }
 }
+using fast_io::read;
 
 namespace fast_io
 {
@@ -84,43 +54,11 @@ namespace fast_io
             return true;
         }
     }
-    using namespace fast_io_head;
-    
-    template <typename A, typename B>
-    inline bool read(A &a, B&b)
-    {
-        return read(a) && read(b);
-    }
-
-    template <typename A, typename B, typename C>
-    inline bool read(A &a, B &b, C &c)
-    {
-        return read(a) && read(b) && read(c);
-    }
-
-    template <typename A, typename B, typename C, typename D>
-    inline bool read(A &a, B &b, C &c, D &d)
-    {
-        return read(a) && read(b) && read(c) && read(d);
-    }
-
-    template <typename A, typename B, typename C, typename D, typename E>
-    inline bool read(A &a, B &b, C &c, D &d, E &e)
-    {
-        return read(a) && read(b) && read(c) && read(d) && read(e);
-    }
-
-    template <typename A, typename B, typename C, typename D, typename E, typename F>
-    inline bool read(A &a, B &b, C &c, D &d, E &e, F &f)
-    {
-        return read(a) && read(b) && read(c) && read(d) && read(e) && read(f);
-    }
+    using fast_io_head::read;
 
     template <typename T>
-    inline void read(vector<T> &now, const uint &sz)
-    {
-        now.resize(sz);
-        for (auto &v: now) read(v);
-    }
-}
+    inline bool read(vector<T> &object) { bool flag = true; for (auto &v : object) flag &= read(v); return flag; }
 
+    template <typename H, typename ...T>
+    inline bool read(H &head, T &...tail) { return read(head) && read(tail...); }
+}
