@@ -29,7 +29,7 @@ namespace EDGE{
         ++tot;
     }
 }
-namespace HLD{ //heavy-light decomposition (edge based)
+namespace HLD{ //heavy-light decomposition (edge/Point based)
     int Dpth[MAXN],Sz[MAXN],Tp[MAXN],F[MAXN],Pos[MAXN],Son[MAXN],Fp[MAXN];
     //pos[u] indicates the hash of edge of point u to fa[u]
     int Tot;
@@ -109,7 +109,7 @@ namespace HLD{ //heavy-light decomposition (edge based)
 }
 
 int main(){
-    
+
     return 0;
 }
 
