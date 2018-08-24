@@ -22,7 +22,7 @@ public:
                 dp[i][j] = M(dp[i][j - 1], dp[i + (k >> 1)][j - 1]);
     }
 
-    inline T query(int left, int right)//Caution: Parameter left, right are not the subscript of a[] passed in, but dp[] which start exactly from 1.
+    inline T query(int left, int right)
     {
         int k = 0;
         for (; 1 << k + 1 <= right - left + 1; k++);
