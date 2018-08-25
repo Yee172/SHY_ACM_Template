@@ -92,6 +92,7 @@
 │   │       ├── graph.cpp
 │   │       ├── math
 │   │       │   ├── Gaussian_elimination.cpp
+│   │       │   ├── adaptive_Simpson_integral.cpp
 │   │       │   ├── combinatorial
 │   │       │   │   └── combinatorial.cpp
 │   │       │   ├── fast_Fourier_transform.cpp
@@ -157,4 +158,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-27 directories, 130 files
+27 directories, 131 files
