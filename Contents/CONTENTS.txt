@@ -4,16 +4,46 @@
 │   │   ├── VinceBlack
 │   │   │   ├── Calendar.cpp
 │   │   │   ├── ConvexInsection.cpp
+│   │   │   ├── CutUpTree(Point_Based)_zkw.cpp
 │   │   │   ├── EnglishNumeral.cpp
+│   │   │   ├── HLD.cpp
 │   │   │   ├── MRT.cpp
+│   │   │   ├── Old\ template
+│   │   │   │   ├── C(n,r).cpp
+│   │   │   │   ├── DictionaryTree.cpp
+│   │   │   │   ├── DividePoint.cpp
+│   │   │   │   ├── DoubleLCA.cpp
+│   │   │   │   ├── EKSquare.cpp
+│   │   │   │   ├── EXKMP.cpp
+│   │   │   │   ├── FFT.cpp
+│   │   │   │   ├── Jihe.cpp
+│   │   │   │   ├── Jihe2.cpp
+│   │   │   │   ├── KMP.cpp
+│   │   │   │   ├── RMQqueue.cpp
+│   │   │   │   ├── Segment\ tree(Add+Mul).cpp
+│   │   │   │   ├── StringHash.cpp
+│   │   │   │   ├── SuffixArray.cpp
+│   │   │   │   ├── UnionFind.cpp
+│   │   │   │   ├── bitmask.cpp
+│   │   │   │   ├── chairman\ tree.cpp
+│   │   │   │   ├── gramma.cpp
+│   │   │   │   ├── manacher.cpp
+│   │   │   │   ├── segment\ tree.cpp
+│   │   │   │   ├── splay.cpp
+│   │   │   │   ├── zkwsegment\ tree(max).cpp
+│   │   │   │   └── zkwsegment\ tree(sum).cpp
 │   │   │   ├── ReadMe.txt
+│   │   │   ├── Splay-Basic.cpp
 │   │   │   ├── Sudoku_dancingLink.cpp
-│   │   │   ├── XjbCutUpTree_zkw.cpp
+│   │   │   ├── adaptive_Simpson_integral.cpp
 │   │   │   ├── bitOp.cpp
 │   │   │   ├── dui.bat
+│   │   │   ├── head.cpp
+│   │   │   ├── kingblock(TreeBlockCut).cpp
 │   │   │   ├── nick.sh
 │   │   │   ├── segment_longest_part.cpp
 │   │   │   ├── segment_tree_normal.cpp
+│   │   │   ├── splay_playCard.cpp
 │   │   │   ├── union_set.cpp
 │   │   │   └── zkw_segment_tree_normal.cpp
 │   │   ├── Wavator
@@ -76,47 +106,50 @@
 │   │   │       ├── kmp.cpp
 │   │   │       ├── manacher.cpp
 │   │   │       └── trie.cpp
-│   │   └── Yee_172
-│   │       ├── CRT.cpp
-│   │       ├── README.md
-│   │       ├── data_structure
-│   │       │   ├── Cartesian_tree.cpp
-│   │       │   ├── cut_tree.cpp
-│   │       │   ├── disjoint_set_union.cpp
-│   │       │   ├── range_minimum_maximum_query.cpp
-│   │       │   └── segment_tree.cpp
-│   │       ├── geometry
-│   │       │   └── geometry.cpp
-│   │       ├── graph
-│   │       │   └── graph.cpp
-│   │       ├── graph.cpp
-│   │       ├── math
-│   │       │   ├── Gaussian_elimination.cpp
-│   │       │   ├── adaptive_Simpson_integral.cpp
-│   │       │   ├── combinatorial
-│   │       │   │   └── combinatorial.cpp
-│   │       │   ├── fast_Fourier_transform.cpp
-│   │       │   ├── fast_Walsh_Hadamard_transform.cpp
-│   │       │   ├── high_precision.cpp
-│   │       │   ├── matrix.cpp
-│   │       │   ├── number_theoretic_transform.cpp
-│   │       │   ├── number_theory
-│   │       │   │   ├── Lucas.cpp
-│   │       │   │   ├── Miller_Rabin_primality_test.cpp
-│   │       │   │   ├── euler_function_sieve.cpp
-│   │       │   │   ├── euler_sieve.cpp
-│   │       │   │   ├── fast_mod_operation.cpp
-│   │       │   │   ├── generate_factors.cpp
-│   │       │   │   ├── is_prime.cpp
-│   │       │   │   ├── mobius_mu_sieve.cpp
-│   │       │   │   └── phi.cpp
-│   │       │   └── sqrt_k.cpp
-│   │       └── sundries
-│   │           ├── IO.cpp
-│   │           ├── header.cpp
-│   │           ├── inverse_pairs.cpp
-│   │           ├── recursions_and_sequences.cpp
-│   │           └── template.cpp
+│   │   ├── Yee_172
+│   │   │   ├── CRT.cpp
+│   │   │   ├── README.md
+│   │   │   ├── data_structure
+│   │   │   │   ├── Cartesian_tree.cpp
+│   │   │   │   ├── binary_indexed_tree_2D.cpp
+│   │   │   │   ├── cut_tree.cpp
+│   │   │   │   ├── disjoint_set_union.cpp
+│   │   │   │   ├── range_minimum_maximum_query.cpp
+│   │   │   │   └── segment_tree.cpp
+│   │   │   ├── geometry
+│   │   │   │   └── geometry.cpp
+│   │   │   ├── graph
+│   │   │   │   └── graph.cpp
+│   │   │   ├── graph.cpp
+│   │   │   ├── math
+│   │   │   │   ├── Gaussian_elimination.cpp
+│   │   │   │   ├── adaptive_Simpson_integral.cpp
+│   │   │   │   ├── combinatorial
+│   │   │   │   │   └── combinatorial.cpp
+│   │   │   │   ├── fast_Fourier_transform.cpp
+│   │   │   │   ├── fast_Walsh_Hadamard_transform.cpp
+│   │   │   │   ├── high_precision.cpp
+│   │   │   │   ├── matrix.cpp
+│   │   │   │   ├── number_theoretic_transform.cpp
+│   │   │   │   ├── number_theory
+│   │   │   │   │   ├── Lucas.cpp
+│   │   │   │   │   ├── Miller_Rabin_primality_test.cpp
+│   │   │   │   │   ├── euler_function_sieve.cpp
+│   │   │   │   │   ├── euler_sieve.cpp
+│   │   │   │   │   ├── fast_mod_operation.cpp
+│   │   │   │   │   ├── generate_factors.cpp
+│   │   │   │   │   ├── is_prime.cpp
+│   │   │   │   │   ├── mobius_mu_sieve.cpp
+│   │   │   │   │   └── phi.cpp
+│   │   │   │   └── sqrt_k.cpp
+│   │   │   └── sundries
+│   │   │       ├── IO.cpp
+│   │   │       ├── header.cpp
+│   │   │       ├── inverse_pairs.cpp
+│   │   │       ├── recursions_and_sequences.cpp
+│   │   │       └── template.cpp
+│   │   └── lanran
+│   │       └── graph
 │   ├── java
 │   │   └── Wavator
 │   │       ├── Main.java
@@ -158,4 +191,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-27 directories, 131 files
+29 directories, 162 files

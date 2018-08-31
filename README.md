@@ -8,9 +8,9 @@
 
 [VinceBlack](http://codeforces.com/profile/VinceBlack)
 
-[Yee_172](https://github.com/Yee172)
+[Yee_172](http://codeforces.com/profile/Yee_172)
 
-
+[lanran](http://codeforces.com/profile/lanran2001)
 
 ## CONTENTS
 
