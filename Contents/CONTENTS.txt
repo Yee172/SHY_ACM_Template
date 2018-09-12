@@ -41,6 +41,7 @@
 │   │   │   ├── head.cpp
 │   │   │   ├── kingblock(TreeBlockCut).cpp
 │   │   │   ├── nick.sh
+│   │   │   ├── palindromeTree.cpp
 │   │   │   ├── segment_longest_part.cpp
 │   │   │   ├── segment_tree_normal.cpp
 │   │   │   ├── splay_playCard.cpp
@@ -124,6 +125,7 @@
 │   │   │   ├── math
 │   │   │   │   ├── Gaussian_elimination.cpp
 │   │   │   │   ├── adaptive_Simpson_integral.cpp
+│   │   │   │   ├── baby_step_giant_step.cpp
 │   │   │   │   ├── combinatorial
 │   │   │   │   │   └── combinatorial.cpp
 │   │   │   │   ├── fast_Fourier_transform.cpp
@@ -191,4 +193,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-29 directories, 162 files
+29 directories, 164 files
