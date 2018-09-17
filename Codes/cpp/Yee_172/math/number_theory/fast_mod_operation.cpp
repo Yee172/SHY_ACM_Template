@@ -54,3 +54,12 @@ inline long long __mul__(long long a, long long b, long long mod)
     a = a - a / mod * mod, b = b - b / mod * mod;
     return ((a * b - ((long long)((long double)a / mod * b + 1e-3) * mod)) % mod + mod) % mod;
 }
+
+inline int __mul__(long long a, const int b, const int mod)
+{
+    a = a < mod ? a : a - a / mod * mod;
+    a = a < 0 ? a - a / mod * mod + mod : a;
+    a *= b;
+    a = a < 0 ? a - a / mod * mod + mod : a;
+    return (int) (a < mod ? a : a - a / mod * mod);
+}

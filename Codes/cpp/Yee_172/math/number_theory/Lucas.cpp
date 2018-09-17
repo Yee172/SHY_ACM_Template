@@ -10,7 +10,7 @@ namespace Lucas
     int factorial_inverse[MAXN];
 
     inline int __mul__(long long a, const int b) { a *= b; return (int) (a < MOD ? a : a - a / MOD * MOD); }
-    inline int __mod__(const int a) { return a < MOD ? a : a - a / MOD * MOD; }
+    inline int __mod__(const long long a) { return (int) (a < MOD ? a : a - a / MOD * MOD); }
 
     inline void initialize()
     {
@@ -26,7 +26,7 @@ namespace Lucas
     inline int binomial(int n, int k)
     { return n < k ? 0 : __mul__(factorial[n], __mul__(factorial_inverse[n - k], factorial_inverse[k])); }
 
-    inline int Lucas(int n, int k)
+    inline int Lucas(long long n, long long k)
     {
         if (n < k) return 0;
         int res = 1;
@@ -34,4 +34,3 @@ namespace Lucas
         return res;
     }
 }
-using Lucas::Lucas;

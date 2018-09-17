@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 namespace FFT
 {
     typedef int TYPE;

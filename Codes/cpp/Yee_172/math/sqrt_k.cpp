@@ -26,5 +26,4 @@ namespace sqrt_k
         for (ll i = _pow(res, k); i > n || i == -1; res--, i = _pow(res, k));
         return res;
     }
-
 }
