@@ -2,6 +2,7 @@
 ├── Codes
 │   ├── cpp
 │   │   ├── VinceBlack
+│   │   │   ├── Calculator(Super).cpp
 │   │   │   ├── Calendar.cpp
 │   │   │   ├── ConvexInsection.cpp
 │   │   │   ├── CutUpTree(Point_Based)_zkw.cpp
@@ -124,8 +125,8 @@
 │   │   │   ├── graph.cpp
 │   │   │   ├── math
 │   │   │   │   ├── Gaussian_elimination.cpp
+│   │   │   │   ├── Manhattan_distance.cpp
 │   │   │   │   ├── adaptive_Simpson_integral.cpp
-│   │   │   │   ├── baby_step_giant_step.cpp
 │   │   │   │   ├── combinatorial
 │   │   │   │   │   └── combinatorial.cpp
 │   │   │   │   ├── fast_Fourier_transform.cpp
@@ -134,10 +135,13 @@
 │   │   │   │   ├── matrix.cpp
 │   │   │   │   ├── number_theoretic_transform.cpp
 │   │   │   │   ├── number_theory
+│   │   │   │   │   ├── Chinese_remainder_theorem.cpp
 │   │   │   │   │   ├── Lucas.cpp
 │   │   │   │   │   ├── Miller_Rabin_primality_test.cpp
+│   │   │   │   │   ├── baby_step_giant_step.cpp
 │   │   │   │   │   ├── euler_function_sieve.cpp
 │   │   │   │   │   ├── euler_sieve.cpp
+│   │   │   │   │   ├── extended_Lucas.cpp
 │   │   │   │   │   ├── fast_mod_operation.cpp
 │   │   │   │   │   ├── generate_factors.cpp
 │   │   │   │   │   ├── is_prime.cpp
@@ -193,4 +197,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-29 directories, 164 files
+29 directories, 168 files

@@ -37,7 +37,7 @@ namespace high_precision
         BigInteger  operator ^  (const long long &) const;
         BigInteger  operator ^= (const long long &b) { return *this = *this ^ b; }
         bool        operator >  (const BigInteger &T) const;
-        bool        operator <  (const BigInteger &T) const { return T > *this; };
+        bool        operator <  (const BigInteger &T) const { return T > *this; }
         bool        operator >= (const BigInteger &T) const { return !(T > *this); }
         bool        operator <= (const BigInteger &T) const { return !(*this > T); }
         bool        operator == (const BigInteger &T) const;
