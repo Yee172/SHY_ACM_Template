@@ -33,10 +33,11 @@ namespace HLD{ //heavy-light decomposition (edge/Point based)
     int Dpth[MAXN],Sz[MAXN],Tp[MAXN],F[MAXN],Pos[MAXN],Son[MAXN],Fp[MAXN];
     //pos[u] indicates the hash of edge of point u to fa[u]
     int Tot;
-    void Init(){
+    void Init(int N){
         EDGE::Init();
+        ST::TREE.build(1,1,N);//N-1 for edge-based
         memset(Son,-1,sizeof(Son));
-        Tot=0;
+        Tot=1;
     }
     void dfs1(int x,int fa,int d){
         Dpth[x]=d;
@@ -110,6 +111,15 @@ namespace HLD{ //heavy-light decomposition (edge/Point based)
 
 int main(){
 
+//    HLD::Init(n);
+//    for(int i=1;i<n;i++){
+//        int tmp;
+//        scanf("%d",&tmp);
+//        EDGE::addedge(i+1,tmp,0);
+//        EDGE::addedge(tmp,i+1,0);
+//    }
+//    HLD::dfs1(1,0,0);
+//    HLD::dfs2(1,0);
     return 0;
 }
 
