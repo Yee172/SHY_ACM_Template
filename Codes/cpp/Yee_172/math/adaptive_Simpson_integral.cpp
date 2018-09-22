@@ -4,7 +4,7 @@ using namespace std;
 namespace adaptive_Simpson_integral
 {
     typedef double db;
-    typedef pair<double, double> pdd;
+    typedef pair<db, db> pdd;
     typedef pair<pdd, pdd> pdddd;
     const db eps = 1e-6;
     db (*f)(db);
