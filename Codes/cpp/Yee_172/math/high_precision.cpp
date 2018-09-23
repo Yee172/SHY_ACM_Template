@@ -280,13 +280,17 @@ namespace high_precision
         return o;
     }
 
+    void raw2raw_sqrt()
+    {
+        SQRT_CNT = 0;
+        sqrt_dfs(2, buffer + (strlen(buffer) & 1), 0);
+    }
+
     void BigInteger::get_raw_sqrt() const
     {
         assert(a[length - 1] >= 0);
         to_inner_char();
-        _debug(buffer)
-        SQRT_CNT = 0;
-        sqrt_dfs(2, buffer + (strlen(buffer) & 1), 0);
+        raw2raw_sqrt();
     }
 
     void BigInteger::print(bool stdio)
