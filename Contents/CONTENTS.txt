@@ -138,6 +138,7 @@
 │   │   │   │   │   ├── Chinese_remainder_theorem.cpp
 │   │   │   │   │   ├── Lucas.cpp
 │   │   │   │   │   ├── Miller_Rabin_primality_test.cpp
+│   │   │   │   │   ├── Pollard_Rho_prime_factorization.cpp
 │   │   │   │   │   ├── baby_step_giant_step.cpp
 │   │   │   │   │   ├── euler_function_sieve.cpp
 │   │   │   │   │   ├── euler_sieve.cpp
@@ -148,6 +149,8 @@
 │   │   │   │   │   ├── mobius_mu_sieve.cpp
 │   │   │   │   │   └── phi.cpp
 │   │   │   │   └── sqrt_k.cpp
+│   │   │   ├── string
+│   │   │   │   └── KMP.cpp
 │   │   │   └── sundries
 │   │   │       ├── IO.cpp
 │   │   │       ├── header.cpp
@@ -197,4 +200,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-29 directories, 168 files
+30 directories, 170 files
