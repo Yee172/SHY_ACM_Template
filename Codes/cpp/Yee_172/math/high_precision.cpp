@@ -26,16 +26,16 @@ namespace high_precision
 
         BigInteger &operator =  (const BigInteger &T) { length = T.length; memcpy(a, T.a, sizeof a); return *this; }
         BigInteger  operator +  (const BigInteger &) const;
-        BigInteger  operator += (const BigInteger &T) { return *this = *this + T; }
+        BigInteger &operator += (const BigInteger &T) { return *this = *this + T; }
         BigInteger  operator -  (const BigInteger &) const;
-        BigInteger  operator -= (const BigInteger &T) { return *this = *this - T; }
+        BigInteger &operator -= (const BigInteger &T) { return *this = *this - T; }
         BigInteger  operator *  (const BigInteger &) const;
-        BigInteger  operator *= (const BigInteger &T) { return *this = *this * T; }
+        BigInteger &operator *= (const BigInteger &T) { return *this = *this * T; }
         BigInteger  operator /  (const long long &) const;
-        BigInteger  operator /= (const long long &b) { return *this = *this / b; }
+        BigInteger &operator /= (const long long &b) { return *this = *this / b; }
         long long   operator %  (const long long &) const;
         BigInteger  operator ^  (const long long &) const;
-        BigInteger  operator ^= (const long long &b) { return *this = *this ^ b; }
+        BigInteger &operator ^= (const long long &b) { return *this = *this ^ b; }
         bool        operator >  (const BigInteger &T) const;
         bool        operator <  (const BigInteger &T) const { return T > *this; }
         bool        operator >= (const BigInteger &T) const { return !(T > *this); }

@@ -52,7 +52,6 @@ namespace Manhattan_distance
                 minimum_b = get_min(minimum_b, tmp);
                 maximum_b = get_max(maximum_b, tmp);
             }
-            _debug(maximum_a, minimum_a, maximum_b, minimum_b, maximum_a - minimum_b, maximum_b - minimum_a)
             res = get_max(res, get_max(maximum_a - minimum_b, maximum_b - minimum_a));
         }
         return res;

@@ -8,7 +8,7 @@ namespace Gaussian_elimination
     int n = 0;
     int augment_dimension = 1;
 
-    inline void initialize() { a.resize((unsigned long)n, vector<double>(n + augment_dimension, 0)); }
+    inline void initialize() { a.assign((unsigned long)n, vector<double>(n + augment_dimension, 0)); }
 
     inline int sign(const double x) { return x < -eps ? -1 : x > eps; }
 
@@ -56,8 +56,8 @@ namespace Gaussian_elimination
 
     inline void initialize()
     {
-        a.resize((unsigned long)n, vector<int>(n + augment_dimension, 0));
-        diagonal.resize((unsigned long)n, 0);
+        a.assign((unsigned long)n, vector<int>(n + augment_dimension, 0));
+        diagonal.assign((unsigned long)n, 0);
     }
 
     bool Gaussian_elimination()

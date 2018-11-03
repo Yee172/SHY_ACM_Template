@@ -55,6 +55,12 @@ inline long long __mul__(long long a, long long b, long long mod)
     return ((a * b - ((long long)((long double)a / mod * b + 1e-3) * mod)) % mod + mod) % mod;
 }
 
+inline long long __mul__(long long a, long long b, long long mod)
+{
+    a = a - a / mod * mod, b = b - b / mod * mod;
+    return ((long long)((long double)a * b - (long double)((long long)((long double)a / mod * b + 1e-3) * mod)) + mod) % mod;
+}
+
 inline int __mul__(long long a, const int b, const int mod)
 {
     a = a < mod ? a : a - a / mod * mod;
@@ -62,4 +68,20 @@ inline int __mul__(long long a, const int b, const int mod)
     a *= b;
     a = a < 0 ? a - a / mod * mod + mod : a;
     return (int) (a < mod ? a : a - a / mod * mod);
+}
+
+inline int mul(int a, int b, int mod)
+{
+#if !defined(_WIN32) || defined(_WIN64)
+    return (int) ((long long) a * b % mod);
+#endif
+    unsigned long long x = (long long) a * b;
+    unsigned xh = (unsigned) (x >> 32), xl = (unsigned) x, d, m;
+    asm
+    (
+        "divl %4; \n\t"
+        : "=a" (d), "=d" (m)
+        : "d" (xh), "a" (xl), "r" (mod)
+    );
+    return m;
 }

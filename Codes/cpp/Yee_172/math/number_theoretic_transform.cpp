@@ -55,5 +55,15 @@ namespace NTT
             for (int i = 0; i < n; ++i) A[i] = __mul__(A[i], inv);
         }
     }
+
+    void __mul__(int * A, int A_n, int * B, int B_n, int * C)
+    {
+        int bit = get_bit(A_n + B_n + 1);
+        memset(A + A_n + 1, 0, sizeof(int) * (bit - A_n - 1));
+        memset(B + B_n + 1, 0, sizeof(int) * (bit - B_n - 1));
+        ntt(A, bit), ntt(B, bit);
+        for (int i = 0; i < bit; ++i) C[i] = __mul__(A[i], B[i]);
+        ntt(C, bit, -1);
+    }
 }
 using NTT::get_bit;

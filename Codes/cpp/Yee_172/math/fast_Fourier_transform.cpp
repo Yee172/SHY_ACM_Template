@@ -94,4 +94,4 @@ namespace FFT
         for (int i = 0; i < need; i++) res[i] = static_cast<TYPE>(fa[i].real + 0.5);
         return res;
     }
-};
+}
