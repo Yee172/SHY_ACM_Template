@@ -128,7 +128,8 @@
 │   │   │   │   ├── Manhattan_distance.cpp
 │   │   │   │   ├── adaptive_Simpson_integral.cpp
 │   │   │   │   ├── combinatorial
-│   │   │   │   │   └── combinatorial.cpp
+│   │   │   │   │   ├── combinatorial.cpp
+│   │   │   │   │   └── partition.cpp
 │   │   │   │   ├── fast_Fourier_transform.cpp
 │   │   │   │   ├── fast_Walsh_Hadamard_transform.cpp
 │   │   │   │   ├── high_precision.cpp
@@ -200,4 +201,4 @@
 │   └── macro_detector.cpp
 └── contents_generator.sh~
 
-30 directories, 170 files
+30 directories, 171 files
