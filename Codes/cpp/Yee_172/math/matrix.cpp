@@ -138,3 +138,79 @@ namespace matrix
     };
 }
 using matrix::Matrix;
+
+namespace matrix
+{
+    typedef double db;
+    const db eps = 1e-5;
+    class Matrix
+    {
+    public:
+        unsigned col;
+        unsigned row;
+        vector<vector<db> > mat;
+        Matrix(unsigned row=0, unsigned col=0) : row(row), col(col), mat(row, vector<db>(col, 0)){}
+        inline void initialize() { mat = vector<vector<db> >(row, vector<db>(col, 0)); }
+
+        vector<db> &operator [] (unsigned i) { return mat[i]; }
+
+        Matrix operator + (Matrix &b) const
+        {
+            assert(col == b.col && row == b.row);
+            Matrix res(row, col);
+            for (int i = 0; i < col; ++i)
+                for (int j = 0; j < row; ++j)
+                    res[i][j] = mat[i][j] + b[i][j];
+            return res;
+        }
+        Matrix &operator += (Matrix &b) { return *this = *this + b; }
+
+        Matrix operator - (Matrix &b) const
+        {
+            assert(col == b.col && row == b.row);
+            Matrix res(row, col);
+            for (int i = 0; i < col; ++i)
+                for (int j = 0; j < row; ++j)
+                    res[i][j] = mat[i][j] - b[i][j];
+            return res;
+        }
+        Matrix &operator -= (Matrix &b) { return *this = *this - b; }
+
+        Matrix operator * (Matrix &b) const
+        {
+            assert(col == b.row && row == b.col);
+            Matrix res(row, row);
+            for (int k = 0; k < col; ++k)
+                for (int i = 0; i < row; ++i)
+                    if (abs(mat[i][k]) > eps)
+                        for (int j = 0; j < row; ++j)
+                            res[i][j] += mat[i][k] * b[k][j];
+            return res;
+        }
+        Matrix &operator *= (Matrix &b) { return *this = *this * b; }
+
+        pair<Matrix, Matrix> LU_composition() const
+        {
+            assert(col == row);
+            assert(row > 0);
+            unsigned n = row;
+            Matrix L(n, n), U(n, n), tmp;
+            tmp.mat = mat;
+            for (int i = 0; i < n; ++i) L[i][i] = 1;
+            for (int i = 0; i < n; ++i)
+            {
+                U[i][i] = tmp[i][i];
+                for (int j = i + 1; j < n; ++j)
+                {
+                    L[j][i] = tmp[j][i] / U[i][i];
+                    U[i][j] = tmp[i][j];
+                }
+                for (int j = i + 1; j < n; ++j)
+                    for (int k = i + 1; k < n; ++k)
+                        tmp[j][k] -= L[j][i] * U[i][k];
+            }
+            return make_pair(L, U);
+        };
+    };
+}
+using matrix::Matrix;
