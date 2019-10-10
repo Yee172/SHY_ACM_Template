@@ -1,8 +1,10 @@
+#!/bin/zsh
+
 folderpath=$(cd `dirname $0`; pwd)
 cd $folderpath
 printf "compiling ......\n"
-g++-7 -o test test.cpp
-g++-7 -o standard standard.cpp
+g++-9 -o test test.cpp
+g++-9 -o standard standard.cpp
 printf "compile finished\n"
 test=1
 while true

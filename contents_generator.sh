@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 folderpath=$(cd `dirname $0`; pwd)
 cd $folderpath
 tree > ./Contents/CONTENTS.txt
